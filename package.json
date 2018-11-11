@@ -1,0 +1,23 @@
+{
+  "name": "square-puzzle",
+  "version": "0.0.0",
+  "description": "Trigonometry Puzzle",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build -d dist http/index.html",
+    "watch": "parcel watch -d dist http/index.html",
+    "serve": "parcel serve -d dist http/index.html"
+  },
+  "author": "",
+  "license": "Unlicense",
+  "devDependencies": {
+    "parcel-bundler": "^1.10.3",
+    "sass": "^1.14.3"
+  },
+  "dependencies": {
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "react-katex": "^2.0.2"
+  }
+}

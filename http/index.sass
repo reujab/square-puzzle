@@ -1,0 +1,51 @@
+table
+	border-collapse: collapse
+	margin: auto
+
+td
+	border: 1px solid black
+	height: 4cm
+	padding: 0
+	position: relative
+	width: 4cm
+
+	div
+		position: absolute
+
+	.top
+		text-align: center
+		top: 5px
+		transform: rotate(-180deg)
+		width: 100%
+
+	.right
+		align-items: center
+		display: flex
+		height: 100%
+		justify-content: center
+		right: 5px
+		top: 0
+
+		& > div
+			transform: rotate(-90deg)
+
+	.bottom
+		bottom: 5px
+		text-align: center
+		width: 100%
+
+	.left
+		align-items: center
+		display: flex
+		height: 100%
+		justify-content: center
+		left: 5px
+		top: 0
+
+		& > div
+			transform: rotate(90deg)
+
+// FIXME: temporary fix
+// without this, the rendered expression is shifted to the right by 100%
+.katex .base
+	display: block !important
