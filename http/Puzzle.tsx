@@ -1,8 +1,7 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { InlineMath } from "react-katex"
+import * as React from "react"
+import Square from "./Square"
 
-class Index extends React.Component {
+export default class Puzzle extends React.Component {
 	render() {
 		return (
 			<table>
@@ -116,45 +115,3 @@ class Index extends React.Component {
 		)
 	}
 }
-
-class Square extends React.Component {
-	componentDidMount() {
-		// fixes position of left and right edges
-		const tr = ReactDOM.findDOMNode(this)
-		// selects the rotated div in .left and .right
-		const parents = tr.querySelectorAll(".left, .right")
-		for (const parent of parents) {
-			// sets the parent's (.left's or .right's) width to the rotated child div's height, which is really its displayed width
-			const child = parent.querySelector("div")
-			parent.style.width = `${child.clientHeight}px`
-		}
-	}
-
-	render() {
-		return (
-			<td>
-				<div className="top">
-					<InlineMath>{this.props.top}</InlineMath>
-				</div>
-				<div className="right">
-					<div>
-						<InlineMath>{this.props.right}</InlineMath>
-					</div>
-				</div>
-				<div className="bottom">
-					<InlineMath>{this.props.bottom}</InlineMath>
-				</div>
-				<div className="left">
-					<div>
-						<InlineMath>{this.props.left}</InlineMath>
-					</div>
-				</div>
-			</td>
-		)
-	}
-}
-
-addEventListener("DOMContentLoaded", () => {
-	ReactDOM.render(<Index />, document.getElementById("root"))
-})
-
