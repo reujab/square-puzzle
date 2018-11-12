@@ -1,11 +1,11 @@
 import * as React from "react"
 import Puzzle from "./Puzzle"
 import ReactDOM from "react-dom"
-import original from "./original"
+import generate from "./generator"
 
 class Index extends React.Component {
 	render() {
-		return <Puzzle rows={original} />
+		return <Puzzle rows={generate()} />
 	}
 }
 
