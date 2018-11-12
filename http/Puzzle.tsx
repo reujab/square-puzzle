@@ -1,5 +1,6 @@
 import * as React from "react"
 import Square from "./Square"
+import _ from "lodash"
 
 interface Props {
 	rows: string[][][]
@@ -14,7 +15,7 @@ export default class Puzzle extends React.Component<Props, State> {
 		super(props)
 
 		let squares = 0
-		const rows = Object.assign([], props.rows)
+		const rows = _.cloneDeep(props.rows)
 		for (const row of rows) {
 			for (let i = 0; i < row.length; i++) {
 				squares++
