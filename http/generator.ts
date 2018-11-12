@@ -70,20 +70,18 @@ export default function generate(): string[][][] {
 		}
 	}
 
-	// shuffles columns
-	for (let row = 0; row < rows.length; row++) {
-		rows[row] = _.shuffle(rows[row])
-
-		// rotates squares
-		for (const square of rows[row]) {
+	// rotates squares
+	for (const row of rows) {
+		for (const square of row) {
+			// circular shift 0-3 times
 			for (let i = 0; i < _.random(square.length - 1); i++) {
 				square.push(square.shift())
 			}
 		}
 	}
 
-	// shuffles rows
-	return _.shuffle(rows)
+	// shuffles tile position
+	return _.chunk(_.shuffle(_.flatten(rows)), 4)
 }
 
 // returns a random function
