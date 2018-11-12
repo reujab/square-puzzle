@@ -1,11 +1,7 @@
 import _ from "lodash"
-import map, { Matches } from "./constant-map"
+import map from "./constant-map"
 
 export default function generate(): string[][][] {
-	// TODO: the first three constants in this array appear only once and have only one matching function
-	// the first four constants in this array cannot be edges of the outer square
-	const shuffled = _.shuffle(map)
-
 	// 4x4 multidimensional array
 	const rows = [
 		[[], [], [], []],
@@ -26,15 +22,15 @@ export default function generate(): string[][][] {
 					// marks one outer corner
 					square[0] = ""
 				} else {
-					square[0] = getEdgeConstant(shuffled)
+					square[0] = getConstant()
 				}
 			}
 
 			// right expression
 			if (col === 3) {
-				square[1] = getEdgeConstant(shuffled)
+				square[1] = getConstant()
 			} else {
-				const sample = _.sample(shuffled)
+				const sample = _.sample(map)
 				const pair = _.shuffle([
 					sample.constant,
 					_.sample(sample.functions),
@@ -48,9 +44,9 @@ export default function generate(): string[][][] {
 
 			// bottom expression
 			if (row === 3) {
-				square[2] = getEdgeConstant(shuffled)
+				square[2] = getConstant()
 			} else {
-				const sample = _.sample(shuffled)
+				const sample = _.sample(map)
 				const pair = _.shuffle([
 					sample.constant,
 					_.sample(sample.functions),
@@ -68,7 +64,7 @@ export default function generate(): string[][][] {
 					// marks one outer corner
 					square[3] = ""
 				} else {
-					square[3] = getEdgeConstant(shuffled)
+					square[3] = getConstant()
 				}
 			}
 		}
@@ -90,17 +86,12 @@ export default function generate(): string[][][] {
 	return _.shuffle(rows)
 }
 
-// returns a random constant (excluding the first four)
-function getEdgeConstant(map: Matches[]): string {
-	return _.sample(map.slice(4)).constant
-}
-
 // returns a random function
-function getFunction(map: Matches[]): string {
+function getFunction(): string {
 	return _.sample(_.sample(map).functions)
 }
 
 // returns a random constant
-function getConstant(map: Matches[]): string {
+function getConstant(): string {
 	return _.sample(map).constant
 }
