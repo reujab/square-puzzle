@@ -1,10 +1,11 @@
 import * as React from "react"
-import ReactDOM from "react-dom"
 import Puzzle from "./Puzzle"
+import ReactDOM from "react-dom"
+import original from "./original"
 
 class Index extends React.Component {
 	render() {
-		return <Puzzle />
+		return <Puzzle rows={original} />
 	}
 }
 

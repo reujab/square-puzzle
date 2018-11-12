@@ -3,6 +3,7 @@ import ReactDOM from "react-dom"
 import { InlineMath } from "react-katex"
 
 interface Props {
+	num: number,
 	top: string,
 	right: string,
 	bottom: string,
@@ -26,6 +27,7 @@ export default class Square extends React.Component<Props> {
 	render() {
 		return (
 			<td>
+				<div className="num">{this.props.num}</div>
 				<div className="top">
 					<InlineMath>{this.props.top}</InlineMath>
 				</div>
