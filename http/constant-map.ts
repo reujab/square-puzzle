@@ -3,7 +3,8 @@ export interface Matches {
 	functions: string[],
 }
 
-export default [
+// refactor if https://github.com/Microsoft/TypeScript/issues/13626 is implemented
+let map: Matches[] = [
 	{
 		constant: "\\text{undefined}",
 		functions: [
@@ -83,4 +84,6 @@ export default [
 			"\\sec 60^\\circ",
 		],
 	},
-] as Matches[]
+]
+
+export default map
