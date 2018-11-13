@@ -12,6 +12,14 @@ interface Props {
 
 export default class Square extends React.Component<Props> {
 	componentDidMount() {
+		this.fix()
+	}
+
+	componentDidUpdate() {
+		this.fix()
+	}
+
+	fix() {
 		// fixes position of left and right edges
 		const tr = ReactDOM.findDOMNode(this) as HTMLElement
 		// selects the rotated div in .left and .right

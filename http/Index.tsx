@@ -5,6 +5,7 @@ import Sidebar, { Settings } from "./Sidebar"
 import generate from "./generator"
 
 interface State {
+	puzzle: string[][][]
 	settings: Settings
 }
 
@@ -13,6 +14,7 @@ class Index extends React.Component<any, State> {
 		super(props)
 
 		this.state = {
+			puzzle: generate(),
 			settings: {
 				borders: true,
 			},
@@ -22,9 +24,13 @@ class Index extends React.Component<any, State> {
 	render() {
 		return (
 			<React.Fragment>
-				<Sidebar settings={this.state.settings} onChange={(settings) => this.setState({ settings })} />
+				<Sidebar
+					settings={this.state.settings}
+					onChange={(settings) => this.setState({ settings })}
+					onGenerate={() => this.setState({ puzzle: generate() })}
+				/>
 				<div id="content">
-					<Puzzle borders={this.state.settings.borders} rows={generate()} />
+					<Puzzle borders={this.state.settings.borders} rows={this.state.puzzle} />
 				</div>
 			</React.Fragment>
 		)

@@ -4,6 +4,7 @@ import { Button, Card, Checkbox } from "@blueprintjs/core"
 interface Props {
 	settings: Settings;
 	onChange: (settings: Settings) => void
+	onGenerate: () => void
 }
 
 export interface Settings {
@@ -16,11 +17,11 @@ export default class Sidebar extends React.Component<Props> {
 			<Card id="sidebar" elevation={4}>
 				<Checkbox
 					checked={this.props.settings.borders}
-					onChange={(e) => this.props.onChange(Object.assign(this.props.settings, { borders: (e.target as HTMLInputElement).checked }))}
+					onChange={(e) => this.props.onChange({ ...this.props.settings, borders: (e.target as HTMLInputElement).checked })}
 				>
 					Borders
 				</Checkbox>
-				<Button fill={true}>Generate</Button>
+				<Button fill={true} onClick={this.props.onGenerate}>Generate</Button>
 			</Card>
 		)
 	}
