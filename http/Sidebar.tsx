@@ -19,7 +19,7 @@ export default class Sidebar extends React.Component<Props> {
 					checked={this.props.settings.borders}
 					onChange={(e) => this.props.onChange({ ...this.props.settings, borders: (e.target as HTMLInputElement).checked })}
 				>
-					Borders
+					Cut outline
 				</Checkbox>
 				<Button fill={true} onClick={this.props.onGenerate}>Generate</Button>
 			</Card>
