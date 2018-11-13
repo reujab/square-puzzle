@@ -1,6 +1,12 @@
 import * as React from "react"
-import { Button, Card, Checkbox } from "@blueprintjs/core"
 import { Settings } from "./interfaces"
+
+import {
+	Button,
+	ButtonGroup,
+	Card,
+	Checkbox,
+} from "@blueprintjs/core"
 
 interface Props {
 	settings: Settings;
@@ -26,7 +32,10 @@ export default class Sidebar extends React.Component<Props> {
 					Reveal one corner
 				</Checkbox>
 
-				<Button fill={true} onClick={this.props.onGenerate}>Generate</Button>
+				<ButtonGroup fill={true}>
+					<Button onClick={this.props.onGenerate}>Generate</Button>
+					<Button onClick={print}>Print</Button>
+				</ButtonGroup>
 			</Card>
 		)
 	}
