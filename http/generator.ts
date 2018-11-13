@@ -1,7 +1,8 @@
 import _ from "lodash"
 import map from "./constant-map"
+import { Settings } from "./interfaces"
 
-export default function generate(): string[][][] {
+export default function generate(settings: Settings): string[][][] {
 	// 4x4 multidimensional array
 	const rows = [
 		[[], [], [], []],
@@ -18,7 +19,7 @@ export default function generate(): string[][][] {
 			// checks if the the expression will be on the an edge of the outer square
 			// if it is, select a random edge constant
 			if (row === 0) {
-				if (col === 0) {
+				if (col === 0 && settings.revealCorner) {
 					// marks one outer corner
 					square[0] = ""
 				} else {
@@ -60,7 +61,7 @@ export default function generate(): string[][][] {
 
 			// left expression
 			if (col === 0) {
-				if (row === 0) {
+				if (row === 0 && settings.revealCorner) {
 					// marks one outer corner
 					square[3] = ""
 				} else {

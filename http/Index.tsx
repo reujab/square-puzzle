@@ -1,8 +1,9 @@
 import * as React from "react"
 import Puzzle from "./Puzzle"
 import ReactDOM from "react-dom"
-import Sidebar, { Settings } from "./Sidebar"
+import Sidebar from "./Sidebar"
 import generate from "./generator"
+import { Settings } from "./interfaces"
 
 interface State {
 	puzzle: string[][][]
@@ -13,11 +14,14 @@ class Index extends React.Component<any, State> {
 	constructor(props) {
 		super(props)
 
+		const settings = {
+			borders: true,
+			revealCorner: true,
+		}
+
 		this.state = {
-			puzzle: generate(),
-			settings: {
-				borders: true,
-			},
+			puzzle: generate(settings),
+			settings,
 		}
 	}
 
@@ -27,7 +31,7 @@ class Index extends React.Component<any, State> {
 				<Sidebar
 					settings={this.state.settings}
 					onChange={(settings) => this.setState({ settings })}
-					onGenerate={() => this.setState({ puzzle: generate() })}
+					onGenerate={() => this.setState({ puzzle: generate(this.state.settings) })}
 				/>
 				<div id="content">
 					<Puzzle borders={this.state.settings.borders} rows={this.state.puzzle} />

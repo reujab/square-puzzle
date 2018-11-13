@@ -1,14 +1,11 @@
 import * as React from "react"
 import { Button, Card, Checkbox } from "@blueprintjs/core"
+import { Settings } from "./interfaces"
 
 interface Props {
 	settings: Settings;
 	onChange: (settings: Settings) => void
 	onGenerate: () => void
-}
-
-export interface Settings {
-	borders: boolean
 }
 
 export default class Sidebar extends React.Component<Props> {
@@ -21,6 +18,14 @@ export default class Sidebar extends React.Component<Props> {
 				>
 					Cut outline
 				</Checkbox>
+
+				<Checkbox
+					checked={this.props.settings.revealCorner}
+					onChange={(e) => this.props.onChange({ ...this.props.settings, revealCorner: (e.target as HTMLInputElement).checked })}
+				>
+					Reveal one corner
+				</Checkbox>
+
 				<Button fill={true} onClick={this.props.onGenerate}>Generate</Button>
 			</Card>
 		)
