@@ -1,6 +1,6 @@
 import _ from "lodash"
 import map from "./constant-map"
-import { Settings } from "./interfaces"
+import { Settings } from "./types"
 
 export default function generate(settings: Settings): string[][][] {
 	// 4x4 multidimensional array

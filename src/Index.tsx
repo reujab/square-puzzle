@@ -3,7 +3,7 @@ import Puzzle from "./Puzzle"
 import ReactDOM from "react-dom"
 import Sidebar from "./Sidebar"
 import generate from "./generator"
-import { Settings } from "./interfaces"
+import { Settings } from "./types"
 
 interface State {
 	puzzle: string[][][]
