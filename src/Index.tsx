@@ -16,6 +16,7 @@ class Index extends React.Component<any, State> {
 
 		const settings = {
 			borders: true,
+			labelSquares: true,
 			revealCorner: true,
 			shuffle: true,
 		}
@@ -35,7 +36,7 @@ class Index extends React.Component<any, State> {
 					onGenerate={() => this.setState({ puzzle: generate(this.state.settings) })}
 				/>
 				<div id="content">
-					<Puzzle borders={this.state.settings.borders} rows={this.state.puzzle} />
+					<Puzzle settings={this.state.settings} rows={this.state.puzzle} />
 				</div>
 			</React.Fragment>
 		)

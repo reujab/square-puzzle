@@ -1,9 +1,10 @@
 import * as React from "react"
 import Square from "./Square"
 import _ from "lodash"
+import { Settings } from "./types"
 
 interface Props {
-	borders: boolean
+	settings: Settings
 	rows: string[][][]
 }
 
@@ -25,8 +26,13 @@ export default class Puzzle extends React.Component<Props> {
 				)
 			}))
 
+		const classes = _.compact([
+			this.props.settings.borders && "border",
+			this.props.settings.labelSquares && "label",
+		]).join(" ")
+
 		return (
-			<table className={this.props.borders ? "border" : ""}>
+			<table className={classes}>
 				<tbody>
 					<tr>
 						{rows[0]}

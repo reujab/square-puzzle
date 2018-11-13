@@ -26,6 +26,13 @@ export default class Sidebar extends React.Component<Props> {
 				</Checkbox>
 
 				<Checkbox
+					checked={this.props.settings.labelSquares}
+					onChange={(e) => this.props.onChange({ ...this.props.settings, labelSquares: (e.target as HTMLInputElement).checked })}
+				>
+					Label squares
+				</Checkbox>
+
+				<Checkbox
 					checked={this.props.settings.revealCorner}
 					onChange={(e) => this.props.onChange({ ...this.props.settings, revealCorner: (e.target as HTMLInputElement).checked })}
 				>
