@@ -3,10 +3,11 @@ import Puzzle from "./Puzzle"
 import ReactDOM from "react-dom"
 import Sidebar from "./Sidebar"
 import generate from "./generator"
-import { Settings } from "./types"
+import { Button, ButtonGroup } from "@blueprintjs/core"
+import { iPuzzle, Settings } from "./types"
 
 interface State {
-	puzzle: string[][][]
+	puzzle: iPuzzle
 	settings: Settings
 }
 
@@ -18,7 +19,8 @@ class Index extends React.Component<any, State> {
 			borders: true,
 			labelSquares: true,
 			revealCorner: true,
-			shuffle: true,
+
+			shuffled: true,
 		}
 
 		this.state = {
@@ -36,7 +38,15 @@ class Index extends React.Component<any, State> {
 					onGenerate={() => this.setState({ puzzle: generate(this.state.settings) })}
 				/>
 				<div id="content">
-					<Puzzle settings={this.state.settings} rows={this.state.puzzle} />
+					<div id="puzzle-wrapper">
+						<Puzzle settings={this.state.settings} puzzle={this.state.puzzle} />
+					</div>
+					<div id="shuffle-toggle">
+						<ButtonGroup>
+							<Button active={this.state.settings.shuffled} onClick={() => this.setState({ settings: { ...this.state.settings, shuffled: true } })}>Shuffled</Button>
+							<Button active={!this.state.settings.shuffled} onClick={() => this.setState({ settings: { ...this.state.settings, shuffled: false } })}>Solved</Button>
+						</ButtonGroup>
+					</div>
 				</div>
 			</React.Fragment>
 		)

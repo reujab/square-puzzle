@@ -1,8 +1,8 @@
 import _ from "lodash"
 import map from "./constant-map"
-import { Settings } from "./types"
+import { iPuzzle, Settings } from "./types"
 
-export default function generate(settings: Settings): string[][][] {
+export default function generate(settings: Settings): iPuzzle {
 	// 4x4 multidimensional array
 	const rows = [
 		[[], [], [], []],
@@ -71,22 +71,18 @@ export default function generate(settings: Settings): string[][][] {
 		}
 	}
 
-	if (!settings.shuffle) {
-		return rows
+	return {
+		solved: rows,
+		// shuffles tile position
+		shuffled: _.chunk(_.shuffle(_.flatten(_.cloneDeep(rows))), 4).
+			// rotates squares
+			map((row) => row.map((square) => {
+				for (let i = 0; i < _.random(square.length - 1); i++) {
+					square.push(square.shift())
+				}
+				return square
+			}))
 	}
-
-	// rotates squares
-	for (const row of rows) {
-		for (const square of row) {
-			// circular shift 0-3 times
-			for (let i = 0; i < _.random(square.length - 1); i++) {
-				square.push(square.shift())
-			}
-		}
-	}
-
-	// shuffles tile position
-	return _.chunk(_.shuffle(_.flatten(rows)), 4)
 }
 
 // returns a random constant

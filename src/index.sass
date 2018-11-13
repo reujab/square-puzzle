@@ -14,13 +14,24 @@ button:focus
 	width: 250px
 
 #content
-	flex-grow: 1
-	overflow: auto
-	display: flex
 	// `safe` still isn't implemented in Chrome as of November, 2018, so a portion of the puzzle will be chopped off if the viewport is too small
 	// it should look normal in Firefox
 	align-items: safe center
-	justify-content: safe center
+
+	flex-grow: 1
+	overflow: auto
+	display: flex
+	flex-direction: column
+
+#puzzle-wrapper
+	flex-grow: 1
+	flex-shrink: 0
+	display: flex
+	align-items: center
+
+#shuffle-toggle
+	flex-shrink: 0
+	padding: 20px
 
 table
 	border-collapse: collapse
@@ -92,5 +103,6 @@ td
 	display: block !important
 
 @media print
-	#sidebar
+	#sidebar,
+	#shuffle-toggle
 		display: none
