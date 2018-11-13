@@ -85,11 +85,6 @@ export default function generate(settings: Settings): string[][][] {
 	return _.chunk(_.shuffle(_.flatten(rows)), 4)
 }
 
-// returns a random function
-function getFunction(): string {
-	return _.sample(_.sample(map).functions)
-}
-
 // returns a random constant
 function getConstant(): string {
 	return _.sample(map).constant
