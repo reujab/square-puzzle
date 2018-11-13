@@ -1,10 +1,36 @@
+html, body, #root
+	height: 100%
+
+// disables ugly blue border around clicked buttons
+button:focus
+	outline: 0 !important
+
+#root
+	display: flex
+
+#sidebar
+	flex-shrink: 0
+	overflow: auto
+	width: 250px
+
+#content
+	flex-grow: 1
+	overflow: auto
+	display: flex
+	// `safe` still isn't implemented in Chrome as of November, 2018, so a portion of the puzzle will be chopped off if the viewport is too small
+	// it should look normal in Firefox
+	align-items: safe center
+	justify-content: safe center
+
 table
 	border-collapse: collapse
-	margin: auto
+
+.border td
+	border: 1px solid black
 
 td
-	border: 1px solid black
 	height: 4cm
+	min-width: 4cm
 	padding: 0
 	position: relative
 	width: 4cm

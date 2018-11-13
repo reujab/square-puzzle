@@ -3,6 +3,7 @@ import Square from "./Square"
 import _ from "lodash"
 
 interface Props {
+	borders: boolean
 	rows: string[][][]
 }
 
@@ -36,7 +37,7 @@ export default class Puzzle extends React.Component<Props, State> {
 
 	render() {
 		return (
-			<table>
+			<table className={this.props.borders ? "border" : ""}>
 				<tbody>
 					<tr>
 						{this.state.rows[0]}
