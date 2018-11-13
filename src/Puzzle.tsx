@@ -34,18 +34,10 @@ export default class Puzzle extends React.Component<Props> {
 		return (
 			<table className={classes}>
 				<tbody>
-					<tr>
-						{rows[0]}
-					</tr>
-					<tr>
-						{rows[1]}
-					</tr>
-					<tr>
-						{rows[2]}
-					</tr>
-					<tr>
-						{rows[3]}
-					</tr>
+					<tr>{rows[0]}</tr>
+					<tr>{rows[1]}</tr>
+					<tr>{rows[2]}</tr>
+					<tr>{rows[3]}</tr>
 				</tbody>
 			</table>
 		)
