@@ -17,6 +17,7 @@ class Index extends React.Component<any, State> {
 		const settings = {
 			borders: true,
 			revealCorner: true,
+			shuffle: true,
 		}
 
 		this.state = {

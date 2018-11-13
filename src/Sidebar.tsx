@@ -32,6 +32,13 @@ export default class Sidebar extends React.Component<Props> {
 					Reveal one corner
 				</Checkbox>
 
+				<Checkbox
+					checked={this.props.settings.shuffle}
+					onChange={(e) => this.props.onChange({ ...this.props.settings, shuffle: (e.target as HTMLInputElement).checked })}
+				>
+					Shuffle puzzle
+				</Checkbox>
+
 				<ButtonGroup fill={true}>
 					<Button onClick={this.props.onGenerate}>Generate</Button>
 					<Button onClick={print}>Print</Button>

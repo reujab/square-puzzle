@@ -71,6 +71,10 @@ export default function generate(settings: Settings): string[][][] {
 		}
 	}
 
+	if (!settings.shuffle) {
+		return rows
+	}
+
 	// rotates squares
 	for (const row of rows) {
 		for (const square of row) {
