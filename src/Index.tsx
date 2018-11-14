@@ -1,4 +1,5 @@
 import * as React from "react"
+import Directions from "./Directions"
 import Puzzle from "./Puzzle"
 import ReactDOM from "react-dom"
 import Sidebar from "./Sidebar"
@@ -38,9 +39,12 @@ class Index extends React.Component<any, State> {
 					onGenerate={() => this.setState({ puzzle: generate(this.state.settings) })}
 				/>
 				<div id="content">
+					<Directions heading="Trigonometry Puzzle" settings={this.state.settings} />
+
 					<div id="puzzle-wrapper">
 						<Puzzle settings={this.state.settings} puzzle={this.state.puzzle} />
 					</div>
+
 					<div id="shuffle-toggle">
 						<ButtonGroup>
 							<Button active={this.state.settings.shuffled} onClick={() => this.setState({ settings: { ...this.state.settings, shuffled: true } })}>Shuffled</Button>

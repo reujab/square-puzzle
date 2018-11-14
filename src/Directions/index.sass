@@ -1,4 +1,11 @@
-#sidebar .directions
-	p
-		margin: 0
-		text-indent: 8mm
+#sidebar .directions p
+	margin: 0
+	text-indent: 8mm
+
+#content .directions
+	display: none
+	flex-shrink: 0
+
+@media print
+	#content .directions
+		display: block

@@ -45,7 +45,7 @@ export default class Sidebar extends React.Component<Props> {
 					<Button onClick={print}>Print</Button>
 				</ButtonGroup>
 
-				<Directions settings={this.props.settings} />
+				<Directions heading="Directions" settings={this.props.settings} />
 			</Card>
 		)
 	}
