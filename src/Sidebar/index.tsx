@@ -1,4 +1,5 @@
 import * as React from "react"
+import Directions from "../Directions"
 import { Settings } from "../types"
 
 import {
@@ -43,6 +44,8 @@ export default class Sidebar extends React.Component<Props> {
 					<Button onClick={this.props.onGenerate}>Generate</Button>
 					<Button onClick={print}>Print</Button>
 				</ButtonGroup>
+
+				<Directions settings={this.props.settings} />
 			</Card>
 		)
 	}
