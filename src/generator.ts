@@ -72,6 +72,7 @@ export default function generate(settings: Settings): iPuzzle {
 	}
 
 	return {
+		revealedCorner: settings.revealCorner,
 		solved: rows,
 		// shuffles tile position
 		shuffled: _.chunk(_.shuffle(_.flatten(_.cloneDeep(rows))), 4).

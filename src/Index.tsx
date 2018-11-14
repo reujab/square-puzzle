@@ -35,11 +35,12 @@ class Index extends React.Component<any, State> {
 			<React.Fragment>
 				<Sidebar
 					settings={this.state.settings}
+					puzzle={this.state.puzzle}
 					onChange={(settings) => this.setState({ settings })}
 					onGenerate={() => this.setState({ puzzle: generate(this.state.settings) })}
 				/>
 				<div id="content">
-					<Directions heading="Trigonometry Puzzle" settings={this.state.settings} />
+					<Directions heading="Trigonometry Puzzle" puzzle={this.state.puzzle} />
 
 					<div id="puzzle-wrapper">
 						<Puzzle settings={this.state.settings} puzzle={this.state.puzzle} />

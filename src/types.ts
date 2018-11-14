@@ -1,5 +1,6 @@
 // named iPuzzle to prevent naming conflicts
 export interface iPuzzle {
+	revealedCorner: boolean
 	solved: string[][][]
 	shuffled: string[][][]
 }

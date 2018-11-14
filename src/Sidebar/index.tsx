@@ -1,6 +1,6 @@
 import * as React from "react"
 import Directions from "../Directions"
-import { Settings } from "../types"
+import { iPuzzle, Settings } from "../types"
 
 import {
 	Button,
@@ -10,7 +10,9 @@ import {
 } from "@blueprintjs/core"
 
 interface Props {
-	settings: Settings;
+	settings: Settings
+	puzzle: iPuzzle
+
 	onChange: (settings: Settings) => void
 	onGenerate: () => void
 }
@@ -45,7 +47,7 @@ export default class Sidebar extends React.Component<Props> {
 					<Button onClick={print}>Print</Button>
 				</ButtonGroup>
 
-				<Directions heading="Directions" settings={this.props.settings} />
+				<Directions heading="Directions" puzzle={this.props.puzzle} />
 			</Card>
 		)
 	}
