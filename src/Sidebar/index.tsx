@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Settings } from "./types"
+import { Settings } from "../types"
 
 import {
 	Button,

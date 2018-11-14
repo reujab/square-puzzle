@@ -1,7 +1,7 @@
 import * as React from "react"
 import Square from "./Square"
 import _ from "lodash"
-import { iPuzzle, Settings } from "./types"
+import { iPuzzle, Settings } from "../types"
 
 interface Props {
 	settings: Settings

@@ -1,0 +1,63 @@
+table
+	border-collapse: collapse
+
+	&.label .num
+		display: flex
+
+.border td
+	border: 1px dashed black
+
+td
+	height: 4cm
+	min-width: 4cm
+	padding: 0
+	position: relative
+	width: 4cm
+
+	div
+		position: absolute
+
+	.num
+		align-items: center
+		display: none
+		font-size: 1.2em
+		height: 100%
+		justify-content: center
+		left: 0
+		opacity: 0.6
+		text-decoration: underline
+		top: 0
+		width: 100%
+
+	.top
+		text-align: center
+		top: 5px
+		transform: rotate(-180deg)
+		width: 100%
+
+	.right
+		align-items: center
+		display: flex
+		height: 100%
+		justify-content: center
+		right: 5px
+		top: 0
+
+		& > div
+			transform: rotate(-90deg)
+
+	.bottom
+		bottom: 5px
+		text-align: center
+		width: 100%
+
+	.left
+		align-items: center
+		display: flex
+		height: 100%
+		justify-content: center
+		left: 5px
+		top: 0
+
+		& > div
+			transform: rotate(90deg)
